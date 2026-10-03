@@ -35,5 +35,5 @@ Array.prototype.getFirst = function () {
   return this[1];
 };
 
-console.log(users.getFirst());
+console.log(users.getFirst));
 console.log(people.getFirst());
