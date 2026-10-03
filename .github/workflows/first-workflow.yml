@@ -8,4 +8,3 @@ jobs:
         run: echo "Hello this is first worflow in github action"
       - name: Bye github action
         run: echo "Bye github action"
-  
