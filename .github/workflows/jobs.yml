@@ -2,10 +2,11 @@
 # by default jobs are implemented parallaly
 name: multiple job test
 on:
-workflow-run:
-  workflows: [First workflow]
-  types:
-    - completed
+  workflow-run:
+    workflows: [First workflow]
+    types:
+      - completed
+
 jobs:
   validate-html:
     # checking existence of html

@@ -2,17 +2,38 @@ name: Validate files
 # on: push
 on: push
 jobs:
-validate-files:
-  runs-on: ubuntu-latest
-  steps:
-    - name: get-repo-code
-      uses: actions/checkout@v4
+  validate-files:
+    runs-on: ubuntu-latest
+    steps:
+      - name: get-repo-code
+        uses: actions/checkout@v4
 
-    - name: validate html file
-      run: test -f index.html
+      - name: validate html file
+        run: test -f index.html
 
-    - name: validate js files
-      run: test -f index.js
+      - name: validate js files
+        run: test -f index.js
 
-    - name: validate js files
-      run: node --check index.j s
+      - name: validate js files
+        run: node --check index.js
+
+# name: Validate files
+
+# on: push
+
+# jobs:
+#   validate-files:
+#     runs-on: ubuntu-latest
+
+#     steps:
+#       - name: Get repo code
+#         uses: actions/checkout@v4
+
+#       - name: Validate HTML file
+#         run: test -f index.html
+
+#       - name: Validate JS file
+#         run: test -f index.js
+
+#       - name: Check JavaScript syntax
+#         run: node --check index.js
