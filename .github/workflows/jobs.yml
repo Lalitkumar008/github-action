@@ -1,0 +1,37 @@
+# sequencitally implementing jobs
+name: multiple jobs test
+# on: push
+on: workflow_dispatch
+jobs:
+  validate-html:
+    # checking existence of html
+    runs-on: ubuntu-latest
+    steps:
+      - name: get-repo-code
+        uses: actions/checkout@v4
+
+      - name: validate html file
+        run: test -f index.html
+
+  validate-js:
+    # checking existence of html
+    runs-on: ubuntu-latest
+    steps:
+      - name: get-repo-code
+        uses: actions/checkout@v4
+
+      - name: validate js files
+        run: test -f index.js
+
+  validate-code:
+    needs: [validate-html, validate-js]
+    runs-on: ubuntu-latest
+    steps:
+      - name: get-repo-code
+        uses: actions/checkout@v4
+
+      - name: validate js files
+        run: node --check index.js
+
+      - name: validate js files
+        run: npx htmlhint index.html

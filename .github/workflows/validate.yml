@@ -1,5 +1,6 @@
 name: Validate files
-on: push
+# on: push
+on: workflow_dispatch
 jobs:
   validate-files:
     runs-on: ubuntu-latest
@@ -14,4 +15,4 @@ jobs:
         run: test -f index.js
 
       - name: validate js files
-        run: node --check index.js
+        run: node --check index.j s
