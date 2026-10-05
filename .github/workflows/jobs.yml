@@ -1,42 +1,45 @@
-# sequencitally implementing jobs
-# by default jobs are implemented parallaly
-name: multiple job test
+# Sequentially implementing jobs
+# By default, jobs are implemented in parallel
+
+name: Multiple Job Test
+
 on:
-  workflow-run:
+  workflow_run:
     workflows: [First workflow]
     types:
       - completed
 
 jobs:
   validate-html:
-    # checking existence of html
+    # Checking existence of HTML
     runs-on: ubuntu-latest
     steps:
-      - name: get-repo-code
+      - name: Get repo code
         uses: actions/checkout@v4
 
-      - name: validate html file
+      - name: Validate HTML file
         run: test -f index.html
 
   validate-js:
-    # checking existence of html
+    # Checking existence of JavaScript
     runs-on: ubuntu-latest
     steps:
-      - name: get-repo-code
+      - name: Get repo code
         uses: actions/checkout@v4
 
-      - name: validate js files
+      - name: Validate JS file
         run: test -f index.js
 
   validate-code:
+    # This job runs only after both validation jobs complete
     needs: [validate-html, validate-js]
     runs-on: ubuntu-latest
     steps:
-      - name: get-repo-code
+      - name: Get repo code
         uses: actions/checkout@v4
 
-      - name: validate js files
+      - name: Check JavaScript syntax
         run: node --check index.js
 
-      - name: validate js files
+      - name: Validate HTML
         run: npx htmlhint index.html
