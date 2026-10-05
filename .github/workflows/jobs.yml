@@ -1,7 +1,6 @@
 # sequencitally implementing jobs
 name: multiple jobs test
-# on: push
-on: workflow_dispatch
+on: push
 jobs:
   validate-html:
     # checking existence of html
