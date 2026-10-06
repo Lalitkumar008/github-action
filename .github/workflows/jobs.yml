@@ -5,7 +5,7 @@ name: Multiple Job Test
 
 on:
   workflow_run:
-    workflows: [Validate files]
+    workflows: [First workflow]
     types:
       - completed
 
