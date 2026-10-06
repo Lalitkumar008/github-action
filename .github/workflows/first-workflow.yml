@@ -9,5 +9,5 @@ jobs:
         run: echo "Hello this is first worflow in github action"
       - name: Bye github action
         run: echo "Bye github action"
-      - name: Job failed intentionally
-        run: exit 1
+      # - name: Job failed intentionally
+      #   run: exit 1
